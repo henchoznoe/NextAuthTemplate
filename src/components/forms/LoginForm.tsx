@@ -1,14 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userLoginFormSchema } from "@/schemas/auth";
 import { z } from "zod";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
-import { revalidatePath } from "next/cache";
 
 const LoginForm = () => {
 
@@ -81,13 +79,18 @@ const LoginForm = () => {
         >
           Login
         </button>
-      </form>
-      <p className="text-center mt-4 text-sm">
-        If you don&apos;t have an account, please&nbsp;
-        <Link className="text-indigo-600 hover:underline" href="/signup">
+        <div
+          className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
+          or
+        </div>
+        <button
+          type="button"
+          className="w-full bg-gray-200 py-2 px-4 rounded-md hover:bg-gray-300"
+          onClick={() => router.push('/signup')}
+        >
           Sign up
-        </Link>
-      </p>
+        </button>
+      </form>
     </div>
   );
 

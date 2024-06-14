@@ -121,13 +121,18 @@ const SignUpForm = () => {
         >
           Sign up
         </button>
-      </form>
-      <p className="text-center mt-4 text-sm">
-        If you have an account, please&nbsp;
-        <Link className="text-indigo-600 hover:underline" href="/login">
+        <div
+          className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
+          or
+        </div>
+        <button
+          type="button"
+          className="w-full bg-gray-200 py-2 px-4 rounded-md hover:bg-gray-300"
+          onClick={() => router.push('/login')}
+        >
           Login
-        </Link>
-      </p>
+        </button>
+      </form>
     </div>
   );
 
